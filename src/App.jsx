@@ -6,7 +6,7 @@ import VideoPlayer from './VideoPlayer'
 import axios from 'axios'
 
 function App() {
-  const [data,setData] = useState();
+  const [data,setData] = useState([]);
   const [videoPath,setVideoPath] = useState('');
   useEffect(()=>{
 
@@ -36,7 +36,14 @@ function App() {
 
   return (
     <>
-      <VideoPlayer videoPath={videoPath}/>
+    {data.map((movie) => (
+        <div key={movie._id}>
+          <h1>{movie.title}</h1>
+          <p>{movie.description}</p>
+          {/* Add more properties as needed */}
+        </div>
+      ))}
+      <VideoPlayer videoPath={videoPath} />
     </>
   )
 }

@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState,useEffect } from 'react';
 
-function VideoPlayer() {
+function VideoPlayer({videoPath}) {
   const videoRef = useRef(null);
   const [currentTime, setCurrentTime] = useState(0);
+  
 
   function changeQuality(quality) {
     const video = videoRef.current;
-    const currentQuality = video.src.split('/').pop();
     setCurrentTime(video.currentTime);
 
-    video.src = `http://localhost:8000/${quality}`;
+    video.src = `http://localhost:8000/player/${quality}?videoPath=${videoPath}`;
     video.load();
     video.currentTime = currentTime;
     video.play();

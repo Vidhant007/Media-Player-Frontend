@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Seasons from './Seasons';
 
 const Series = () => {
     const [seriesData, setSeriesData] = useState([]);
-    const [videoPath, setVideoPath] = useState('');
 
     useEffect(() => {
         const fetchSeries = async () => {
@@ -26,6 +26,7 @@ const Series = () => {
                 <div key={series._id}>
                     <h1>{series.title}</h1>
                     <p>{series.description}</p>
+                    <Seasons seriesTitle={series.title}/>
                 </div>
             ))}
         </div>

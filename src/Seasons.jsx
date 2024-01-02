@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Episode from './Episode';
 
 const Seasons = ({ seriesTitle }) => {
   const [seasonsData, setSeasonsData] = useState([]);
@@ -35,6 +36,7 @@ const Seasons = ({ seriesTitle }) => {
         <div key={season._id}>
           <h1>{season.seasonNumber}</h1>
           <p>{season.description}</p>
+          <Episode seriesTitle={season.seriesTitle} seasonNumber={season.seasonNumber}/>
         </div>
       ))}
     </div>

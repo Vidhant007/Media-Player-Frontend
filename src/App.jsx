@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import VideoPlayer from './VideoPlayer'
 import axios from 'axios'
+import Series from './Series'
 
 function App() {
   const [data,setData] = useState([]);
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+    
     {data.map((movie) => (
         <div key={movie._id}>
           <h1>{movie.title}</h1>
@@ -44,6 +46,7 @@ function App() {
         </div>
       ))}
       <VideoPlayer videoPath={videoPath} />
+      <Series/>
     </>
   )
 }
